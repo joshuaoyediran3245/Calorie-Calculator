@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel = "stylesheet" type = "text/css" href = "style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Calculator</title>
+</head>
+<body>
+    <h1> Calorie Calculator </h1>
+    <p> The Calorie Calculator can be used to estimate the number of calories a person needs to consume each day. 
+        <span> This calculator can also provide some simple guidelines for gaining or losing weight. </span></p>
+<div class="container">
+    <h2> Modify the values and click the Calculate button to use </h2>
+</div>
+    <div class = "personalInfo">
+<div class="container"> 
+<label for = "name"> Name: </label>
+<input type = "text" id="name"> 
+<span> 
+<label for = "age"> Age: </label>
+<input type = "text" id = "age"> 
+<div class = "gender">
+<input type = "checkbox" id = "gender" value = "male"> <span>
+    <label for = "malegender"> Male </label>
+</span>
+<span> 
+<input type = "checkbox" id = "femalegender" value = "female">
+<label for = "femalegender"> Female </label> </span>
+
+</div>
+
+</span>
+
+</div>
+<div class="container">
+    <label for = "height"> Height: </label>
+    <input type = "textbox" id = "feet" placeholder = "Feet"> <span> 
+        <input type = "textbox" id = "inches" placeholder = "Inches"> </span>
+</div>
+<div class="container">
+<label for = "weight"> Weight: </label> <span> <input type = "textbox" id = "weight" placeholder = "Pounds"> </span> 
+
+</div>
+<div class="container">
+<label for = "Activity"> Activity: </label>
+<select id = "activitydropdownmenu"> 
+<option value = "option1"> Base Metablic Rate  </option>
+<option value = "option2"> Sendtary: little or no exercise </option>  
+<option value = "option3"> Light: Exercise 1-3x per week </option>
+<option value = "option4"> Moderate: exercise 4-5x per week  </option>
+<option value = "option5"> Very Intense: daily excercise 6-7x per week </option>
+
+</select>
+
+</div>
+
+<div class="container">
+<label for = "calculate"> Calculate </label>
+<input type="submit" value="Calculate" onclick="redirectToAnotherPage()"> 
+
+</div>
+
+<!-- This ends the personal info section -->
+     </div>
+    
+    <script src = "script.js"> </script>
+
+</body>
+</html>
