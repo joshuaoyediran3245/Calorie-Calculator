@@ -1,7 +1,15 @@
 function calculateMaintenanceCalories() {
     var age = parseInt(document.getElementById('age').value);
-    var genderCheckbox = document.getElementById('gender');
-    var gender = genderCheckbox.checked ? genderCheckbox.value : 'female';
+
+    // Use radio buttons for gender
+    var genderRadios = document.getElementsByName('gender');
+    var gender;
+    for (var i = 0; i < genderRadios.length; i++) {
+        if (genderRadios[i].checked) {
+            gender = genderRadios[i].value;
+            break;
+        }
+    }
 
     // Height
     var feet = parseFloat(document.getElementById('feet').value);
@@ -44,23 +52,32 @@ function calculateMaintenanceCalories() {
             maintenanceCalories = 0;
     }
 
-    // Save the maintenanceCalories in sessionStorage to pass it to the next page
+    // Save the values in sessionStorage
+    sessionStorage.setItem('bmr', bmr);
     sessionStorage.setItem('maintenanceCalories', maintenanceCalories);
 
-    // Redirect to the targetpage.html
-    redirectToAnotherPage();
+    // Display the result in the HTML document
+    displayResult();
 }
 
-function redirectToAnotherPage() {
-    // Replace 'targetpage.html' with the actual path or URL of the page you want to redirect to
-    window.location.href = 'http://127.0.0.1:5500/targetpage.html';
-}
+function displayResult() {
+    var savedBMR = parseFloat(sessionStorage.getItem('bmr'));
+    var savedMaintenanceCalories = parseFloat(sessionStorage.getItem('maintenanceCalories'));
 
-// Check if we are on the result.html page and display the saved maintenanceCalories
-// Check if we are on the result.html page and display the saved maintenanceCalories
-if (window.location.href.includes('result.html')) 
-    var savedMaintenanceCalories = sessionStorage.getItem('maintenanceCalories');
-    if (savedMaintenanceCalories) {
+    if (!isNaN(savedBMR) && !isNaN(savedMaintenanceCalories)) {
         document.getElementById('result').innerHTML =
-            'Your estimated maintenance calories: ' + savedMaintenanceCalories + 'kcal per day';
+            'Your estimated BMR: ' + savedBMR.toFixed(2) + ' calories per day <br>' +
+            'Your estimated maintenance calories: ' + savedMaintenanceCalories.toFixed(2) + ' calories per day';
+var calorieDeficit = savedMaintenanceCalories - 450;
+document.getElementById('calorieDeficit').innerHTML = 
+'Calorie Deficit: ' + calorieDeficit.toFixed(2) + ' Calories per day';
+
+var calorieSurplus = savedMaintenanceCalories + 600; 
+document.getElementById('calorieSurplus').innerHTML = 
+
+'Calorie Surplus ' + calorieSurplus.toFixed(2) + ' Calories per day ';
+
+
+
     }
+}
