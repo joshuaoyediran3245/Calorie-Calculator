@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <link rel = "stylesheet" type = "text/css" href = "style.css">
+    <script src = "script.js"> </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calorie Calculator</title>
+    
 </head>
 <body>
     <h1> Calorie Calculator </h1>
@@ -21,11 +23,11 @@
 <label for = "age"> Age: </label>
 <input type = "text" id = "age"> 
 <div class = "gender">
-<input type = "checkbox" id = "gender" value = "male"> <span>
+<input type = "radio" id = "malegender" name = "gender"> <span>
     <label for = "malegender"> Male </label>
 </span>
 <span> 
-<input type = "checkbox" id = "femalegender" value = "female">
+<input type = "radio" id = "femalegender" name = "female">
 <label for = "femalegender"> Female </label> </span>
 
 </div>
@@ -57,14 +59,35 @@
 
 <div class="container">
 <label for = "calculate"> Calculate </label>
-<input type="submit" value="Calculate" onclick="redirectToAnotherPage()"> 
+<input type="submit" value="Calculate" onclick="calculateMaintenanceCalories()"> 
 
 </div>
 
 <!-- This ends the personal info section -->
      </div>
-    
-    <script src = "script.js"> </script>
 
+<div class = "resultSection"> 
+<div class="container">
+<label for = "resultSection"> Result: </label>
+<div id = "result"> </div>
+</div>
+</div>
+<h3> Below shows the results of how much you need to eat to gain weight as well as lose weight depending on you maintenance calories. </h3>
+<div class = "calorieDeficitSection"> 
+    <div class="container">
+        <label for = "calorieDeficitSection"> Calorie Deficit: </label>
+    <div id = "calorieDeficit"> </div>
+    </div>
+</div>
+    <div class = "calorieSurplusSection"> 
+        <div class="container">
+            <label for = "calorieSurplusSection"> Calorie Surplus: </label>
+            <div id = "calorieSurplus"> </div>
+        </div>
+    </div>
+   <h3> With this information you should be able to determine how much you need to lose and or gain weight. 
+   </h3>
+   <h1> Goodluck on your fitness journey! </h1>
+    <script src ="script.js"> </script>
 </body>
 </html>
